@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Heart Disease Detection</title>
+</head>
+<body>
+    <div class="w-screen min-h-screen overflow-x-hidden  flex flex-col justify-center  items-center">
+        <p class=" text-4xl font-bold py-6">Heart Disease Detection</p>
+        <div class="w-2/4">
+            <form method="post" class="w-full"  id="newForm">
+                {% csrf_token %}
+                <div class="my-4">
+                    <label for="age" class="text-xs font-bold">Age:</label>
+                    <input type="text" class=" block w-full py-1 px-3 rounded bg-gray-100 outline-none" placeholder="age" value="" name="age" required>
+                </div>
+                <div class="my-4">
+                    <label for="sex" class="text-xs font-bold">Sex:</label>
+                    <select  name="sex" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
+                </div>
+                <!--chest pain type-->
+                <div class="my-4">
+                    <label for="cpt" class="text-xs font-bold">Chest pain type:</label>
+                    <select name="cpt"  class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                        <option value="0">typical angina</option>
+                        <option value="1">atypical angina</option>
+                        <option value="2">non-anginal pain</option>
+                        <option value="3">asymptomatic</option>
+                    </select>
+                </div>
+                <div class="my-4">
+                    <label for="trestbps" class="text-xs font-bold">Resting blood pressure(in mm/Hg):</label>
+                    <input type="text" class=" block w-full py-1 px-3 rollllunded bg-gray-100 outline-none"  name="trestbps" placeholder="in mm/Hg" required>
+                </div>
+                <div class="my-4">
+                    <label for="chol" class="text-xs font-bold">serum cholestoral in mg/dl:</label>
+                    <input type="text" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" name="chol" placeholder="in mg/dl" required>
+                </div>
+                <div class="my-4">
+                    <label for="fbs" class="text-xs font-bold">Fasting blood sugar:</label>
+                    <input type="text" name="fbs" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" placeholder="Fasting blood sugar" required>
+                </div>
+                <div class="my-4">
+                    <label for="rest_ecg" class="text-xs font-bold">Resting electrocardiographic results:</label>
+                    <select name="rest_ecg" id="" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                        <option value="0">normal</option>
+                        <option value="1">having ST-T wave abnormality</option>
+                        <option value="2">showing probable or definite left ventricular hypertrophy by Estes' criteria</option>
+                    </select>
+                </div>
+                <div class="my-4">
+                    <label for="thalach" class="text-xs font-bold">maximum heart rate achieved:</label>
+                    <input type="text" name="thalach" placeholder="maximum heart rate achieved" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                </div>
+                <div class="my-4">
+                    <label for="exang" class="text-xs font-bold">Exercise induced angina:</label>
+                    <select name="exang" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="my-4">
+                    <label for="oldpeak" class="text-xs font-bold">ST depression induced by exercise relative to rest:</label>
+                    <input type="text" name="oldpeak" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                </div>
+                <div class="my-4">
+                    <label for="slope" class="text-xs font-bold">the slope of the peak exercise ST segment:</label>
+                    <input type="text" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" name="slope" required>
+                </div>
+                <div class="my-4">
+                    <label for="ca" class="text-xs font-bold">Number of major vessels (0-3) colored by flourosopy:</label>
+                    <input type="text" name="ca" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                </div>
+                <div class="my-4">
+                    <label for="thal" class="text-xs font-bold">Thal rate:</label>
+                    <select name="thal" id="" class="block w-full py-1 px-3 rounded bg-gray-100 outline-none" required>
+                        <option value="1"  >normal</option>
+                        <option value="2">fixed defect</option>
+                        <option value="3">reversable defect</option>
+                    </select>
+                </div>
+                <button class="px-6 font-bold text-white rounded my-4 py-2 bg-green-400" onclick="refresh();">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        {% comment %} function refresh(){
+            window.location.href = '/';
+        } {% endcomment %}
+    </script>
+</body>
+</html>

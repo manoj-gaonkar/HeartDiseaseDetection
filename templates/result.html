@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Heart Disease Detection</title>
+</head>
+<body>
+    <div class="bg-gray-100 w-screen h-screen flex justify-center items-center flex-col">        
+        {% if result == 1 %}
+            <h1 class="font-bold text-4xl text-gray-700">Heart Disease</h1>
+        {% else %}
+            <h1 class="font-bold text-4xl text-gray-700">You are Safe</h1>
+        {% endif %}
+        <a href="{% url 'home' %}" class="px-3 py-2 bg-gray-100 shadow-md font-bold text-xs mt-14 text-black">Check again</a>
+    </div>
+</body>
+</html>
